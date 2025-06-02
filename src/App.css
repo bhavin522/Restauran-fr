@@ -1,38 +1,573 @@
-.App {
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #1b1e23;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navigation - Original Design Restored */
+.main-nav {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-nav li {
+  margin: 0 15px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 5px 10px;
+}
+
+.main-nav a:hover {
+  color: #ffd700;
+}
+
+.main-nav a.active {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo and Header */
+.logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-icon img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.logo h1 {
+  font-size: 3em;
+  color: #ffd700;
+  letter-spacing: 5px;
+}
+
+.tagline h2 {
+  text-align: center;
+  font-size: 1.5em;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Dividers */
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #ffd700;
+  margin: 40px 0;
+}
+
+.small-divider {
+  width: 50px;
+  height: 2px;
+  background-color: #ffd700;
+  margin: 20px auto;
+}
+
+/* Food Gallery */
+.food-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Menu Styles */
+.section-title {
+  text-align: center;
+  color: #ffd700;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+
+.menu-carousel {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  color: #fff;
+}
+
+.carousel-caption h3 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.menu-container {
+  padding: 40px 0;
+}
+
+.menu-category {
+  margin-bottom: 60px;
+}
+
+.menu-category h3 {
+  color: #ffd700;
+  font-size: 2em;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item h4 {
+  color: #ffd700;
+  padding: 15px;
+  margin: 0;
+}
+
+.menu-item p {
+  padding: 0 15px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.menu-item .price {
+  display: block;
+  padding: 15px;
+  color: #ffd700;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.location h3 {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.contact p {
+  color: #fff;
+  margin: 10px 0;
+}
+
+/* About Section Styles */
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.story-content {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.story-content img {
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+.chef-team {
+  text-align: center;
+}
+
+.chef-team h3 {
+  color: #ffd700;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.chef-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.chef-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.chef-card:hover {
+  transform: translateY(-5px);
+}
+
+.chef-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.chef-card h4 {
+  color: #ffd700;
+  margin: 20px 0 10px;
+  font-size: 1.4em;
+}
+
+.chef-card .chef-title {
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.chef-card p {
+  padding: 0 20px 20px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Gallery Section Styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.gallery-grid .gallery-item {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gallery-grid .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid .gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+.gallery-overlay span {
+  color: #ffd700;
+  font-size: 1.1em;
+}
+
+/* Contact Section Styles */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.contact-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.info-details {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.info-item i {
+  color: #ffd700;
+  font-size: 1.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.contact-form h3,
+.map-container h3 {
+  color: #ffd700;
+  font-size: 1.8em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.form-group textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: #ffd700;
+  color: #000;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #ffed4a;
+}
+
+.map-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.google-map {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .contact-container {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Original navbar responsive design */
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-nav li {
+    margin: 10px 0;
+  }
+
+  /* Other responsive styles */
+  .food-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-items {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-item img {
+    height: 300px;
+  }
+
+  .story-content {
+    flex-direction: column;
+  }
+
+  .story-content img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .chef-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-grid .gallery-item {
+    height: 200px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-form,
+  .map-container {
+    padding: 20px;
   }
 }
